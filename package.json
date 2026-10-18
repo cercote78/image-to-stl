@@ -1,0 +1,22 @@
+{
+  "name": "image-to-stl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Convert images to 3D-printable STL reliefs",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "dist:win": "npm run build && electron-builder --win nsis --x64"
+  },
+  "dependencies": { "three": "0.169.0" },
+  "devDependencies": { "electron": "33.4.11", "electron-builder": "25.1.8", "vite": "6.0.7" },
+  "build": {
+    "appId": "it.image2stl.desktop",
+    "productName": "Immagine in STL",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "electron/main.cjs", "package.json"],
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }], "artifactName": "Immagine-in-STL-Setup-${version}.${ext}" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true }
+  }
+}
