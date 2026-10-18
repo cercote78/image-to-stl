@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "dist:win": "npm run build && electron-builder --win nsis --x64"
+    "dist:win": "npm run build && electron-builder --win nsis --x64 --publish never"
   },
   "dependencies": { "three": "0.169.0" },
   "devDependencies": { "electron": "33.4.11", "electron-builder": "25.1.8", "vite": "6.0.7" },
